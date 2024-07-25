@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qr-code</title>
+</head>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    h2{
+        color: black;
+        font-size: xx-large;
+    }
+        *{
+                back-ground: black;
+        }
+    body{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    header{
+        background-color: aquamarine;
+
+        height: 20vh;
+        width: 100%;
+    }
+    .container p {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.container input{
+    width: 60vh;
+    height: 50%;
+    border: 1px solid #494eea;
+    outline: 0;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 5px;
+}
+#qrtext{
+    font-size: larger;
+}
+.container p{
+    font-size: xx-large;
+    font-weight: bold;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container button{
+    width: 60vh;
+    height: 50px;
+    background: #494eea;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: 500;
+}
+#imgbox{
+    width: 200px;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+#imgbox.show-img{
+    max-height: 300px;
+    margin: 10px auto;
+    border: 1px solid #d1d1d1;
+
+}
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake {
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* body{
+        line-height: 1.5;
+        font-family: 'Poppins', sans-serif;
+} */
+*{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+}
+
+.footer{
+        background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col h4{
+        font-size: 18px;
+        color: #ffffff;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
+}
+
+/*  */
+.footer-col .social-links a{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(255,255,255,0.2);
+        margin:0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+        color: #24262b;
+        background-color: #ffffff;
+}
+
+/responsive/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 767px){
+    header img {
+        height: 50px;
+        width: 50px;
+    }
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+
+}
+}
+@media(max-width: 767px){
+    header img {
+        height: 50px;
+        width: 50px;
+    }
+}
+@media(max-width: 767px){
+.container p{
+    font-size: x-large;
+  }
+ .container input{
+    width: 80%;
+  }
+ .container button{
+    width: 80%;
+  }
+}
+@media(max-width: 360px){
+    header {
+        height: 15vh;
+    }
+    header img {
+        height: 40px;
+        width: 40px;
+    }
+    header h2 {
+        font-size: large;
+    }
+   .container p {
+        font-size: medium;
+    }
+   .container input,
+   .container button {
+        width: 90%;
+    }
+}
+@media(max-width: 574px){
+.container p{
+    font-size: large;
+  }
+ .container input{
+    width: 90%;
+  }
+ .container button{
+    width: 90%;
+  }
+}
+</style>
+<header>
+    <img src="image.png" alt="" style="height: 65px; width: 65px;">
+    <h2>QR CODE GENERATOR</h2>
+</header>
+<body>
+    <div class="container">
+        <p>
+            ENTER YOUR TEXT OR URL
+        </p>
+        <input type="text" placeholder="ENTER YOUR TEXT OR URL" id="qrtext" style="
+        height: 15 0px;">
+        <div id="imgbox">
+            <img src="" id="qrimg">
+        </div>
+        <button onclick="GenerateQr()">Generate QR Code</button>
+        </div>
+    <p>
+        THIS WEBSITE NOT SAVE YOUR DATA OR ANY TYPE FILE / URL
+    </p>
+</body>
+<footer>
+    <footer class="footer">
+        <div class="container3">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer
+</footer>
+<script>
+
+    let imgbox = document.getElementById("imgbox");
+    let qrimg = document.getElementById("qrimg");
+    let qrtext = document.getElementById("qrtext");
+
+    function GenerateQr() {
+        if(qrtext.value.length >0){
+        qrimg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrtext.value;
+    imgbox.classList.add("show-img");
+        }
+        else{
+            qrtext.classList.add('error');
+            setTimeout(()=>{
+                qrtext.classList.remove('error');
+            },1000)
+        }
+    }
+
+</script>
+</html>
